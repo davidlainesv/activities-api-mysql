@@ -31,22 +31,22 @@ var app = require('../app/server.js')
 //     })
 // });
 
-// describe('Crear una nueva actividad', function () {
-//     it('Crea la actividad retornando 201', function (done) {
-//         request(app)
-//             .post('/api/activities/')
-//             .set('Accept', 'application/json')
-//             .expect('Content-Type', /json/)
-//             .send({
-//                 'description': 'Actividad #100',
-//                 'date_time': format_datetime(new Date()),
-//                 'category': 'Test',
-//                 'priority': 1,
-//                 'student_id': 1
-//             })
-//             .expect(201, done)
-//     })
-// });
+describe('Crear una nueva actividad', function () {
+    it('Crea la actividad retornando 201', function (done) {
+        request(app)
+            .post('/api/activities/')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .send({
+                'description': 'Actividad #100',
+                'date_time': format_datetime(new Date()),
+                'category': 'Test',
+                'priority': 1,
+                'student_id': 'a00835351'
+            })
+            .expect(201, done)
+    })
+});
 
 describe('Obtener lista de actividades', function () {
     it('Obtiene una lista de más de 1 elemento retornando 200', function (done) {
