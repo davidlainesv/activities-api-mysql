@@ -16,6 +16,15 @@ router.post('/', async function (req, res) {
 
 // read items
 router.get('/', async function (req, res) {
+    if (req.query.id) {
+        try {
+            const result = await controller.select_activity(pool, req.query.id);
+            return res.json(result);
+        } catch (error) {
+            return res.status(404).json({ message: "No hemos encontrado la actividad." });
+        }
+    }
+
     try {
         const results = await controller.select_activities(pool);
         return res.json(results);
