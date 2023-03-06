@@ -3,7 +3,7 @@ const schema = {
     "date_time": "date",
     "category": "string",
     "priority": "boolean",
-    "student_id": "number"
+    "student_id": "string"
 }
 
 function cast_activity(item) {
@@ -107,7 +107,7 @@ function insert_activity(pool, activity) {
             } else {
                 var sql = `
                     INSERT INTO activities (description, date_time, category, priority, student_id)
-                    VALUES ('${activity.description}', '${activity.date_time}', '${activity.category}', '${activity.priority}', ${activity.student_id})
+                    VALUES ('${activity.description}', '${activity.date_time}', '${activity.category}', '${activity.priority}', '${activity.student_id}')
                 `;
                 con.query(sql, function (err, result) {
                     if (err) {

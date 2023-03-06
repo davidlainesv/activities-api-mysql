@@ -15,14 +15,14 @@ const CREATE_TABLE_ACTIVITIES_SQL = `
     date_time datetime NOT NULL,
     category varchar(15),
     priority bit,
-    student_id int,
+    student_id varchar(25),
     PRIMARY KEY (activity_id)
   )
 `
 
 const CREATE_TABLE_STUDENTS_SQL = `
   CREATE TABLE students (
-    student_id int NOT NULL AUTO_INCREMENT,
+    student_id varchar(25) NOT NULL,
     name varchar(255) NOT NULL,
     active bit NOT NULL,
     email varchar(25) NOT NULL,
