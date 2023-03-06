@@ -105,9 +105,10 @@ function insert_activity(pool, activity) {
             if (err) {
                 reject(err);
             } else {
+                activity.priority = + activity.priority
                 var sql = `
                     INSERT INTO activities (description, date_time, category, priority, student_id)
-                    VALUES ('${activity.description}', '${activity.date_time}', '${activity.category}', '${activity.priority}', '${activity.student_id}')
+                    VALUES ('${activity.description}', '${activity.date_time}', '${activity.category}', ${activity.priority}, '${activity.student_id}')
                 `;
                 con.query(sql, function (err, result) {
                     if (err) {
