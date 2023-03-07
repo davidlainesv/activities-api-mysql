@@ -10,6 +10,7 @@ router.post('/', async function (req, res) {
         const result = await controller.insert_activity(pool, req.body);
         return res.status(201).json(result);
     } catch (error) {
+        console.log("server error", error)
         return res.json({
             message: "No hemos podido agregar la actividad",
             server_error: error
