@@ -11,6 +11,7 @@ router.post('/', async function (req, res) {
         return res.status(201).json(result);
     } catch (error) {
         console.log("request", req)
+        console.log("request body", req.body)
         console.log("server error", error)
         return res.json({
             message: "No hemos podido agregar la actividad",
